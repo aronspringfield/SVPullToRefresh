@@ -154,9 +154,10 @@ static char UIScrollViewPullToRefreshView;
         self.state = SVPullToRefreshStateStopped;
         self.showsDateLabel = NO;
         
-        self.titles = [NSMutableArray arrayWithObjects:NSLocalizedString(@"Pull to refresh...",),
-                                                       NSLocalizedString(@"Release to refresh...",),
-                                                       NSLocalizedString(@"Loading...",),
+        self.titles = [NSMutableArray arrayWithObjects:
+                       NSLocalizedStringWithDefaultValue(@"SVPRPullToRefresh", nil, [NSBundle mainBundle], @"Pull to refresh...", @"pull to refresh"),
+                       NSLocalizedStringWithDefaultValue(@"SVPRReleaseToRefresh", nil, [NSBundle mainBundle], @"Release to refresh...", @"release to refresh"),
+                       NSLocalizedStringWithDefaultValue(@"SVPRLoading", nil, [NSBundle mainBundle], @"Loading...", @"loading..."),
                                                        nil];
         
         self.subtitles = [NSMutableArray arrayWithObjects:@"", @"", @"", @"", nil];
@@ -320,7 +321,7 @@ static char UIScrollViewPullToRefreshView;
 - (UILabel *)titleLabel {
     if(!_titleLabel) {
         _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 210, 20)];
-        _titleLabel.text = NSLocalizedString(@"Pull to refresh...",);
+        _titleLabel.text = NSLocalizedStringWithDefaultValue(@"SVPRPullToRefresh", nil, [NSBundle mainBundle], @"Pull to refresh...", @"pull to refresh");
         _titleLabel.font = [UIFont boldSystemFontOfSize:14];
         _titleLabel.backgroundColor = [UIColor clearColor];
         _titleLabel.textColor = textColor;
